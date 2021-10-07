@@ -31,7 +31,7 @@ Son todos los agentes externos
 
 
 # Estructura
-
+```
 ├── cmd 
 ├── pkg 
 └── internal 
@@ -47,7 +47,7 @@ Son todos los agentes externos
     │           └── service.go 
     ├── handlers 
     └── data sources
-
+```
 ## core
 Todos los componentes iran ahí
 ### Domain
