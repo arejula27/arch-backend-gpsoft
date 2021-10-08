@@ -65,7 +65,8 @@ Todos los **driver adapters** van aquí, es decir los adaptadores de nuestros cl
 
 ## Data sources 
 
-Todos los 
-Todos los **driven adapters**
+Todos los **driven adapters**  van aquí, es decir, los adaptadores de los recursos que usemos.
 
+## CMD
+Aquí van todos los main 
 
