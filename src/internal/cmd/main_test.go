@@ -45,3 +45,7 @@ func TestCreateBook(t *testing.T) {
 	wantedJson, _ := json.Marshal(want)
 	assert.Equal(t, bytes.NewBuffer(wantedJson), w.Body)
 }
+
+func TestGetBook(t *testing.T) {
+	//TODO
+}
