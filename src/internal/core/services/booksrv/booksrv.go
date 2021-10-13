@@ -1,4 +1,4 @@
-package services
+package booksrv
 
 import (
 	"errors"

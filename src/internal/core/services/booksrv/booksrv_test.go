@@ -1,1 +1,1 @@
-package services_test
+package booksrv_test
