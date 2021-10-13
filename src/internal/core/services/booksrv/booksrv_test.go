@@ -43,7 +43,7 @@ func TestGet(t *testing.T) {
 			},
 		},
 		{
-			name: "Should return error -book not found",
+			name: "Should return error - book not found",
 			args: args{id: "2"},
 			want: want{err: apperrors.ErrNotFound},
 			mocks: func(m mocks) {
