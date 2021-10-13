@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"net/http"
 	"net/http/httptest"
+	"prakticas/backend-gpsoft/src/internal/core/domain"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -25,10 +26,11 @@ func TestCreateBook(t *testing.T) {
 	router := setupRouter()
 
 	w := httptest.NewRecorder()
-	postBody, _ := json.Marshal(map[string]string{
+	jsonBody := map[string]string{
 		"id":   "1",
 		"name": "quijote",
-	})
+	}
+	postBody, _ := json.Marshal(jsonBody)
 	responseBody := bytes.NewBuffer(postBody)
 	println(responseBody)
 	println()
@@ -38,5 +40,8 @@ func TestCreateBook(t *testing.T) {
 	router.ServeHTTP(w, req)
 
 	assert.Equal(t, 200, w.Code)
-	//assert.Equal(t, "pong", w.Body.String())
+
+	want := domain.NewBook("1", "quijote")
+	wantedJson, _ := json.Marshal(want)
+	assert.Equal(t, bytes.NewBuffer(wantedJson), w.Body)
 }

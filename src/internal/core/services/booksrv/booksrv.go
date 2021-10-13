@@ -25,11 +25,11 @@ func (srv *service) Get(id string) (domain.Book, error) {
 }
 
 func (srv *service) Create(id string, name string) (domain.Book, error) {
-	id, err := srv.bookRepository.Save(domain.NewBook(id, name))
+	book, err := srv.bookRepository.Save(domain.NewBook(id, name))
 	if err != nil {
 		return domain.Book{}, errors.New("no se ha creado el libro")
 	}
-	return domain.NewBook(id, name), nil
+	return book, nil
 }
 
 func (srv *service) Publish(id string) error {

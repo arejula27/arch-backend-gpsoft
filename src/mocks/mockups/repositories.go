@@ -64,10 +64,10 @@ func (mr *MockBookRepositoryMockRecorder) Get(id interface{}) *gomock.Call {
 }
 
 // Save mocks base method.
-func (m *MockBookRepository) Save(arg0 domain.Book) (string, error) {
+func (m *MockBookRepository) Save(arg0 domain.Book) (domain.Book, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Save", arg0)
-	ret0, _ := ret[0].(string)
+	ret0, _ := ret[0].(domain.Book)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }

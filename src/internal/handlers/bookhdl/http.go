@@ -26,7 +26,10 @@ func (hdl *HTTPHandler) Get(c *gin.Context) {
 }
 
 func (hdl *HTTPHandler) Save(c *gin.Context) {
-	book, err := hdl.bookService.Create(c.Param("id"), c.Param("name"))
+	body := BodyCreate{}
+	c.BindJSON(&body)
+
+	book, err := hdl.bookService.Create(body.Id, body.Name)
 	if err != nil {
 		c.AbortWithStatusJSON(500, gin.H{"message": err.Error()})
 		return
