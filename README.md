@@ -70,3 +70,11 @@ Todos los **driven adapters**  van aquí, es decir, los adaptadores de los recur
 ## CMD
 Aquí van todos los main 
 
+
+# Test
+
+para crear los mocks se ha usado
+
+```bash
+$ mockgen -source=src/internal/core/ports/repositories.go -destination src/mocks/mockups/repositories.go
+```
