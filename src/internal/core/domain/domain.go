@@ -5,6 +5,9 @@ type Book struct {
 	name string `json:"name"`
 }
 
-func NewBook(name string) *Book {
-	return &Book{bookRepository: bookRepository}
+func NewBook(id string, name string) Book {
+	return Book{
+		ID:   id,
+		name: name,
+	}
 }

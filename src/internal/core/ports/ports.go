@@ -7,8 +7,9 @@ type BookRepository interface {
 	Save(domain.Book) error
 }
 
-type GameService interface {
+type BookService interface {
 	Get(id string) (domain.Book, error)
 	Create(name string) (domain.Book, error)
-	Delete(id string)
+	Edit(id string, name string)
+	Delete(id string) error
 }
