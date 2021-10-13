@@ -50,8 +50,6 @@ func TestGet(t *testing.T) {
 				m.bookRepository.EXPECT().Get("2").Return(domain.Book{}, apperrors.ErrNotFound)
 			},
 		},
-
-		//TODO otra operación @Dolan haz cualquiera
 	}
 	// · Runner · //
 	for _, tt := range tests {
