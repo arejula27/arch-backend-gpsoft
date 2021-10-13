@@ -4,6 +4,7 @@ import (
 	"errors"
 	"prakticas/backend-gpsoft/src/internal/core/domain"
 	"prakticas/backend-gpsoft/src/internal/core/ports"
+	"prakticas/backend-gpsoft/src/pkg/apperrors"
 )
 
 type service struct {
@@ -17,7 +18,7 @@ func New(bookRepository ports.BookRepository) *service {
 func (srv *service) Get(id string) (domain.Book, error) {
 	book, err := srv.bookRepository.Get(id)
 	if err != nil {
-		return domain.Book{}, errors.New("book doesn't exist")
+		return domain.Book{}, apperrors.ErrNotFound
 	}
 
 	return book, nil

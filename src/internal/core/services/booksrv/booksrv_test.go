@@ -4,6 +4,7 @@ import (
 	"prakticas/backend-gpsoft/src/internal/core/domain"
 	"prakticas/backend-gpsoft/src/internal/core/services/booksrv"
 	"prakticas/backend-gpsoft/src/mocks/mockups"
+	"prakticas/backend-gpsoft/src/pkg/apperrors"
 	"testing"
 
 	"github.com/golang/mock/gomock"
@@ -41,6 +42,14 @@ func TestGet(t *testing.T) {
 				m.bookRepository.EXPECT().Get("1").Return(*book, nil)
 			},
 		},
+		{
+			name: "Should return error -book not found",
+			args: args{id: "2"},
+			want: want{err: apperrors.ErrNotFound},
+			mocks: func(m mocks) {
+				m.bookRepository.EXPECT().Get("2").Return(domain.Book{}, apperrors.ErrNotFound)
+			},
+		},
 
 		//TODO otra operación @Dolan haz cualquiera
 	}
@@ -68,6 +77,15 @@ func TestGet(t *testing.T) {
 	}
 
 }
+
+//TODO
+func TestCreate(t *testing.T) {}
+
+//TODO
+func TestPublish(t *testing.T) {}
+
+//TODO
+func TestDelete(t *testing.T) {}
 
 func simplemockBook(id string, name string) *domain.Book {
 	book := domain.NewBook(id, name)
