@@ -16,9 +16,9 @@ func TestNewBook(t *testing.T) {
 	tests := []struct {
 		name string
 		args args
-		want *domain.Book
+		want domain.Book
 	}{
-		{"Prueba 1", args{"1", "name"}, &domain.Book{ID: "1", Name: "name", Published: false}},
+		{"Prueba 1", args{"1", "name"}, domain.Book{ID: "1", Name: "name", Published: false}},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
