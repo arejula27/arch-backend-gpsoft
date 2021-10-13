@@ -32,9 +32,6 @@ func TestCreateBook(t *testing.T) {
 	}
 	postBody, _ := json.Marshal(jsonBody)
 	responseBody := bytes.NewBuffer(postBody)
-	println(responseBody)
-	println()
-	println()
 
 	req, _ := http.NewRequest("POST", "/save", responseBody)
 	router.ServeHTTP(w, req)
