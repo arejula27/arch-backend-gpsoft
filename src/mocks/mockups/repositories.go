@@ -2,7 +2,7 @@
 // Source: src/internal/core/ports/repositories.go
 
 // Package mock_ports is a generated GoMock package.
-package mock_ports
+package mockups
 
 import (
 	domain "prakticas/backend-gpsoft/src/internal/core/domain"
