@@ -24,8 +24,8 @@ func (srv *service) Get(id string) (domain.Book, error) {
 	return book, nil
 }
 
-func (srv *service) Create(name string) (domain.Book, error) {
-	id, err := srv.bookRepository.Save(domain.NewBook("", name))
+func (srv *service) Create(id string, name string) (domain.Book, error) {
+	id, err := srv.bookRepository.Save(domain.NewBook(id, name))
 	if err != nil {
 		return domain.Book{}, errors.New("no se ha creado el libro")
 	}

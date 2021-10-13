@@ -27,8 +27,23 @@ func (repo *memkvs) Get(id string) (domain.Book, error) {
 	return domain.Book{}, apperrors.ErrNotFound
 }
 
-func (repo *memkvs) Save(domain.Book) (string, error) {
-	return "", nil
+func (repo *memkvs) Save(book domain.Book) (string, error) {
+	bytes, err := json.Marshal(book)
+
+	if book.ID == "" {
+
+	}
+	if err != nil {
+		return "", apperrors.ErrInvalidInput
+	}
+
+	repo.kvs[book.ID] = bytes
+	keys := make([]string, 0, len(repo.kvs))
+	for k := range repo.kvs {
+		keys = append(keys, k)
+	}
+
+	return book.ID, nil
 }
 
 func (repo *memkvs) Delete(id string) error {
