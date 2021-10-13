@@ -44,4 +44,4 @@ func (srv *service) Publish(id string) error {
 	return nil
 }
 
-func (srv *service) Delete(id string)
+func (srv *service) Delete(id string) {}
