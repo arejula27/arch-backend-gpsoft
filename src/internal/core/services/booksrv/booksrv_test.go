@@ -37,9 +37,9 @@ func TestGet(t *testing.T) {
 		{
 			name: "Should return a book sccesfully",
 			args: args{id: "1"},
-			want: want{result: *book},
+			want: want{result: book},
 			mocks: func(m mocks) {
-				m.bookRepository.EXPECT().Get("1").Return(*book, nil)
+				m.bookRepository.EXPECT().Get("1").Return(book, nil)
 			},
 		},
 		{
@@ -85,7 +85,7 @@ func TestPublish(t *testing.T) {}
 //TODO
 func TestDelete(t *testing.T) {}
 
-func simplemockBook(id string, name string) *domain.Book {
+func simplemockBook(id string, name string) domain.Book {
 	book := domain.NewBook(id, name)
 	return book
 }
